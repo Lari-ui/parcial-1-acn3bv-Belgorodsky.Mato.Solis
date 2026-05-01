@@ -1,4 +1,5 @@
 package Parcial1_Belgorodsky_Mato_Solis;
+
 public abstract class vehiculo implements calculable {
     protected String patente;
     protected String marca;

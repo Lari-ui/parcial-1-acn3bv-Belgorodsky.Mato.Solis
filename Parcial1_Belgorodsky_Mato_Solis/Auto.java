@@ -1,4 +1,5 @@
 package Parcial1_Belgorodsky_Mato_Solis;
+
 public class Auto extends vehiculo {
 
     public Auto(String patente, String marca, String modelo, int horas) {
