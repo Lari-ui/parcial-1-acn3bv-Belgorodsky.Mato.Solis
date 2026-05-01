@@ -108,6 +108,8 @@ public class Garage {
         System.out.println("Motos: " + motos);
         System.out.println("Autos: " + autos);
         System.out.println("Camiones: " + camiones);
+        System.out.println("Espacio ocupado: " + espaciosOcupados);
+        System.out.println("Espacio libre: " + espaciosDisponibles());
         System.out.println("Recaudación total: $" + total);
     }
 }

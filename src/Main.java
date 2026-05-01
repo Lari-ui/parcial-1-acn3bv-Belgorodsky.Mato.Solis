@@ -47,7 +47,15 @@ public class Main {
         String patente = leerTextoNoVacio(sc, "Patente: ");
         String marca = leerTextoNoVacio(sc, "Marca: ");
         String modelo = leerTextoNoVacio(sc, "Modelo: ");
-        int horas = leerEnteroPositivo(sc, "Horas: ");
+        int horas;
+        while (true) {
+            try {
+                horas = leerHoras(sc);
+                break;
+            } catch (HorasInvalidasException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         Vehiculo vehiculo;
         if (tipo == 1) {
@@ -94,6 +102,14 @@ public class Main {
             }
             System.out.println("Error: el valor debe ser mayor a 0");
         }
+    }
+
+    private static int leerHoras(Scanner sc) throws HorasInvalidasException {
+        int horas = leerEntero(sc, "Horas: ");
+        if (horas <= 0) {
+            throw new HorasInvalidasException("Horas inválidas");
+        }
+        return horas;
     }
 
     private static int leerEnteroRango(Scanner sc, String mensaje, int minimo, int maximo) {
