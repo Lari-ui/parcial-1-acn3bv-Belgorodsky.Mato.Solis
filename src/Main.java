@@ -3,21 +3,19 @@ package src;
 import java.util.Scanner;
 
 public class Main {
+    private static final String LINEA = "==================================================";
+    private static final String TITULO = "SISTEMA DE GARAJE";
+
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
+            mostrarEncabezado();
             int capacidad = leerEnteroPositivo(sc, "Capacidad del garage: ");
             Garage garage = new Garage(capacidad);
 
             int opcion;
             do {
-                System.out.println("\n1. Ingresar");
-                System.out.println("2. Egresar");
-                System.out.println("3. Listar");
-                System.out.println("4. Espacios libres");
-                System.out.println("5. Reportes");
-                System.out.println("0. Salir");
-
-                opcion = leerEnteroRango(sc, "Opción: ", 0, 5);
+                mostrarMenu(garage);
+                opcion = leerEnteroRango(sc, "Opcion: ", 0, 5);
 
                 switch (opcion) {
                     case 1:
@@ -38,11 +36,17 @@ public class Main {
                     default:
                         break;
                 }
+                if (opcion != 0) {
+                    System.out.println();
+                }
             } while (opcion != 0);
+
+            System.out.println("\nFin del sistema.");
         }
     }
 
     private static void ingresarVehiculo(Scanner sc, Garage garage) {
+        System.out.println("\n--- Ingreso de vehiculo ---");
         int tipo = leerEnteroRango(sc, "Tipo (1 Moto, 2 Auto, 3 Camion): ", 1, 3);
         String patente = leerTextoNoVacio(sc, "Patente: ");
         String marca = leerTextoNoVacio(sc, "Marca: ");
@@ -68,18 +72,19 @@ public class Main {
 
         try {
             garage.ingresarVehiculo(vehiculo);
-            System.out.println("Vehículo ingresado correctamente");
+            System.out.println("Vehiculo ingresado correctamente.");
         } catch (PatenteDuplicadaException | GarageLlenoException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static void egresarVehiculo(Scanner sc, Garage garage) {
+        System.out.println("\n--- Egreso de vehiculo ---");
         String patente = leerTextoNoVacio(sc, "Patente: ");
 
         try {
             Vehiculo salida = garage.egresarVehiculo(patente);
-            System.out.println("Vehículo egresado correctamente");
+            System.out.println("Vehiculo egresado correctamente.");
             salida.mostrarDatos();
             System.out.println("Costo: $" + salida.calcularCosto());
         } catch (VehiculoNoEncontradoException e) {
@@ -88,10 +93,10 @@ public class Main {
     }
 
     private static void mostrarEstado(Garage garage) {
-        System.out.println("----- ESTADO DEL GARAGE -----");
-        System.out.println("Capacidad total: " + garage.getCapacidadMaxima());
-        System.out.println("Espacios ocupados: " + garage.getEspaciosOcupados());
-        System.out.println("Espacios disponibles: " + garage.espaciosDisponibles());
+        System.out.println("\n--- Estado del garage ---");
+        System.out.printf("Capacidad total: %d%n", garage.getCapacidadMaxima());
+        System.out.printf("Espacios ocupados: %d%n", garage.getEspaciosOcupados());
+        System.out.printf("Espacios disponibles: %d%n", garage.espaciosDisponibles());
     }
 
     private static int leerEnteroPositivo(Scanner sc, String mensaje) {
@@ -107,7 +112,7 @@ public class Main {
     private static int leerHoras(Scanner sc) throws HorasInvalidasException {
         int horas = leerEntero(sc, "Horas: ");
         if (horas <= 0) {
-            throw new HorasInvalidasException("Horas inválidas");
+            throw new HorasInvalidasException("Horas invalidas");
         }
         return horas;
     }
@@ -118,7 +123,7 @@ public class Main {
             if (valor >= minimo && valor <= maximo) {
                 return valor;
             }
-            System.out.println("Opción inválida");
+            System.out.println("Opcion invalida.");
         }
     }
 
@@ -129,7 +134,7 @@ public class Main {
                 int valor = Integer.parseInt(sc.nextLine().trim());
                 return valor;
             } catch (NumberFormatException e) {
-                System.out.println("Error: ingreso inválido");
+                System.out.println("Error: ingreso invalido");
             }
         }
     }
@@ -141,7 +146,25 @@ public class Main {
             if (!texto.isEmpty()) {
                 return texto;
             }
-            System.out.println("Error: el campo no puede estar vacío");
+            System.out.println("Error: el campo no puede estar vacio.");
         }
+    }
+
+    private static void mostrarEncabezado() {
+        System.out.println(LINEA);
+        System.out.println(TITULO);
+        System.out.println("Registro, egreso y control de espacios");
+        System.out.println(LINEA);
+    }
+
+    private static void mostrarMenu(Garage garage) {
+        System.out.println();
+        System.out.println("Garage: " + garage.getEspaciosOcupados() + "/" + garage.getCapacidadMaxima() + " ocupados");
+        System.out.println("1. Ingresar vehiculo");
+        System.out.println("2. Egresar vehiculo");
+        System.out.println("3. Listar vehiculos");
+        System.out.println("4. Ver estado");
+        System.out.println("5. Ver reportes");
+        System.out.println("0. Salir");
     }
 }

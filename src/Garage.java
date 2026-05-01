@@ -17,7 +17,7 @@ public class Garage {
     public void ingresarVehiculo(Vehiculo vehiculo)
             throws GarageLlenoException, PatenteDuplicadaException {
         if (vehiculo == null) {
-            throw new IllegalArgumentException("Vehículo inválido");
+            throw new IllegalArgumentException("Vehiculo invalido");
         }
 
         if (existeVehiculo(vehiculo.getPatente())) {
@@ -45,12 +45,12 @@ public class Garage {
             }
         }
 
-        throw new VehiculoNoEncontradoException("Vehículo no encontrado");
+        throw new VehiculoNoEncontradoException("Vehiculo no encontrado");
     }
 
     public void listarVehiculos() {
         if (vehiculos.isEmpty()) {
-            System.out.println("No hay vehículos estacionados.");
+            System.out.println("No hay vehiculos estacionados.");
             return;
         }
 
@@ -104,12 +104,12 @@ public class Garage {
         }
 
         System.out.println("----- REPORTE -----");
-        System.out.println("Total vehículos: " + vehiculos.size());
+        System.out.println("Total vehiculos: " + vehiculos.size());
         System.out.println("Motos: " + motos);
         System.out.println("Autos: " + autos);
         System.out.println("Camiones: " + camiones);
         System.out.println("Espacio ocupado: " + espaciosOcupados);
         System.out.println("Espacio libre: " + espaciosDisponibles());
-        System.out.println("Recaudación total: $" + total);
+        System.out.println("Recaudacion total: $" + total);
     }
 }
