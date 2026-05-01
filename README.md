@@ -1,23 +1,22 @@
 # parcial-1-acn3bv-Belgorodsky.Mato.Solis
 
 ## EXAMEN:
-
-Parcial 1 – Programación avanzada
-AÑO LECTIVO: 2026
-DOCENTES: Bruno, Emmanuel
+- Parcial 1 – Programación avanzada
+- AÑO LECTIVO: 2026
+- DOCENTES: Bruno, Emmanuel
 
 ## EXAMEN PARCIAL 1 – Programación Avanzada.
 
 ### Formato de entrega:
 
-El parcial se puede entregar de forma grupal o individual.
-Deberá ser entregado en un archivo comprimido con el nombre y apellido del alumno.
-El archivo comprimido deberá contener:
-● Código fuente completo del proyecto
-● Documentación UML (PDF)
-● Archivo README.md
-● Archivo .txt con fundamentación de decisiones de diseño
-● Link al repositorio Git utilizado durante el desarrollo
+- El parcial se puede entregar de forma grupal o individual.
+- Deberá ser entregado en un archivo comprimido con el nombre y apellido del alumno.
+- El archivo comprimido deberá contener:
+  - Código fuente completo del proyecto
+  - Documentación UML (PDF)
+  - Archivo README.md
+  - Archivo .txt con fundamentación de decisiones de diseño
+  - Link al repositorio Git utilizado durante el desarrollo
 
 ## Desarrollo de la consigna:
 
@@ -28,57 +27,56 @@ Al iniciar el programa, se deberá registrar el garage indicando su capacidad m�
 
 Funcionamiento del sistema:
 Una vez iniciado el programa:
-
 1. Se inicializa el garage con una capacidad máxima.
 2. Se podrán registrar vehículos indicando:
-   ○ tipo de vehículo (Moto, Auto o Camión)
-   ○ patente
-   ○ marca
-   ○ modelo
-   ○ horas estimadas
+   - tipo de vehículo (Moto, Auto o Camión)
+   - patente
+   - marca
+   - modelo
+   - horas estimadas
 3. El sistema deberá validar que exista espacio suficiente antes de permitir el ingreso.
 4. Dependiendo del tipo de vehículo:
-   ○ Moto → ocupa 1 espacio → $700/hora
-   ○ Auto → ocupa 2 espacios → $1000/hora
-   ○ Camión → ocupa 4 espacios → $1500/hora
+   - Moto → ocupa 1 espacio → $700/hora
+   - Auto → ocupa 2 espacios → $1000/hora
+   - Camión → ocupa 4 espacios → $1500/hora
 5. El sistema deberá permitir:
-   ○ registrar ingreso de vehículo
-   ○ registrar salida de vehículo
-   ○ listar vehículos estacionados
-   ○ visualizar estado del garage
-   ○ generar reportes
-   Al finalizar una operación (por ejemplo, la salida de un vehículo), se deberá mostrar un resumen con la información correspondiente.
+   - registrar ingreso de vehículo
+   - registrar salida de vehículo
+   - listar vehículos estacionados
+   - visualizar estado del garage
+   - generar reportes
+6. Al finalizar una operación (por ejemplo, la salida de un vehículo), se deberá mostrar un resumen con la información correspondiente.
 
 ## Módulo de Vehículos
 
 El sistema deberá modelar distintos tipos de vehículos:
-● Moto
-● Auto
-● Camión
+- Moto
+- Auto
+- Camión
 
 ### Requisitos
 
 Cada vehículo debe tener:
-● patente (única)
-● marca
-● modelo
-● horas estimadas de permanencia
+- patente (única)
+- marca
+- modelo
+- horas estimadas de permanencia
 
 ### Jerarquía
 
 Debe existir:
-● Clase base: Vehiculo
-● Subclases:
-○ Moto
-○ Auto  
-○ Camion
+- Clase base: Vehiculo
+- Subclases:
+  - Moto
+  - Auto  
+  - Camion
 
 ### Comportamientos obligatorios
 
 Cada vehículo debe poder:
-● calcular su costo
-● informar su espacio ocupado
-● mostrar sus datos
+- calcular su costo
+- informar su espacio ocupado
+- mostrar sus datos
 
 ## Módulo de Garage
 
@@ -86,42 +84,42 @@ El garage será el núcleo del sistema.
 
 ### Características
 
-● Tiene una capacidad máxima de espacios
-● Administra los vehículos estacionados
+- Tiene una capacidad máxima de espacios
+- Administra los vehículos estacionados
 
 ### Espacio ocupado por tipo
 
-● Moto → 1 espacio
-● Auto → 2 espacios
-● Camión → 4 espacios
+- Moto → 1 espacio
+- Auto → 2 espacios
+- Camión → 4 espacios
 
 ### Funcionalidades
 
 El sistema debe permitir:
-● Registrar ingreso de vehículo
-● Registrar salida de vehículo
-● Listar vehículos estacionados
-● Mostrar estado del garage
+- Registrar ingreso de vehículo
+- Registrar salida de vehículo
+- Listar vehículos estacionados
+- Mostrar estado del garage
 
 ### Estado del garage
 
 Debe mostrar:
-● Capacidad total
-● Espacio ocupado
-● Espacio disponible
+- Capacidad total
+- Espacio ocupado
+- Espacio disponible
 
 ## Módulo de Cálculo de Costos
 
 Parcial 1 – Programación avanzada
 El sistema debe calcular el costo de cada vehículo en función de:
-● horas estimadas
-● tarifa por tipo
+- horas estimadas
+- tarifa por tipo
 
 ### Tarifas
 
-● Moto → $700/hora
-● Auto → $1000/hora
-● Camión → $1500/hora
+- Moto → $700/hora
+- Auto → $1000/hora
+- Camión → $1500/hora
 
 ### Requisito clave
 
@@ -145,12 +143,12 @@ void mostrarDatos();
 ## Colecciones
 
 Los vehículos deben almacenarse en una colección, por ejemplo:
-ArrayList<Vehiculo>
+`ArrayList<Vehiculo>`
 El sistema debe permitir:
-● agregar vehículos
-● eliminar vehículos
-● recorrer la colección
-● buscar por patente
+- agregar vehículos
+- eliminar vehículos
+- recorrer la colección
+- buscar por patente
 
 ## Validaciones
 
@@ -158,13 +156,13 @@ El sistema debe validar correctamente todos los datos ingresados.
 
 ### No permitido:
 
-● patentes duplicadas
-● horas ≤ 0
-● campos vacíos
-● ingreso sin espacio disponible
-● salida de vehículo inexistente
-● opciones inválidas en menú
-● tipos de datos incorrectos
+- patentes duplicadas
+- horas ≤ 0
+- campos vacíos
+- ingreso sin espacio disponible
+- salida de vehículo inexistente
+- opciones inválidas en menú
+- tipos de datos incorrectos
 
 ## Excepciones
 
@@ -172,15 +170,15 @@ El sistema debe manejar errores sin finalizar la ejecución.
 
 ### Uso obligatorio de:
 
-● try-catch
-● excepciones estándar
+- try-catch
+- excepciones estándar
 
 ### Excepciones personalizadas:
 
-● GarageLlenoException
-● PatenteDuplicadaException
-● VehiculoNoEncontradoException
-● HorasInvalidasException
+- GarageLlenoException
+- PatenteDuplicadaException
+- VehiculoNoEncontradoException
+- HorasInvalidasException
 
 ## Reportes
 
@@ -188,11 +186,11 @@ El sistema debe incluir reportes básicos.
 
 ### Reportes mínimos
 
-● cantidad total de vehículos
-● cantidad por tipo
-● espacio ocupado
-● espacio libre
-● recaudación total estimada
+- cantidad total de vehículos
+- cantidad por tipo
+- espacio ocupado
+- espacio libre
+- recaudación total estimada
 
 ## Interfaz por Consola
 
@@ -217,19 +215,19 @@ Se espera que se grafique la totalidad del sistema, representando su estructura 
 ### Requisitos
 
 Deberá incluir obligatoriamente:
-● Diagrama de Clases
-● Diagrama de Casos de Uso
+- Diagrama de Clases
+- Diagrama de Casos de Uso
 Los diagramas deberán:
-● Representar correctamente las clases, relaciones y funcionalidades del
-sistema
-● Reflejar el diseño implementado en el código
-● Ser claros, ordenados y coherentes con la solución desarrollada
+- Representar correctamente las clases, relaciones y funcionalidades del
+  sistema
+- Reflejar el diseño implementado en el código
+- Ser claros, ordenados y coherentes con la solución desarrollada
 
 ### Formato de entrega
 
-● La documentación deberá entregarse en formato PDF
-● Deberá ubicarse dentro de la carpeta /docs del proyecto
-● El archivo deberá tener un nombre claro y representativo del contenido
+- La documentación deberá entregarse en formato PDF
+- Deberá ubicarse dentro de la carpeta /docs del proyecto
+- El archivo deberá tener un nombre claro y representativo del contenido
 
 ## Control de Versiones (Git)
 
@@ -237,26 +235,26 @@ El parcial debe desarrollarse utilizando Git.
 
 ### Requisitos
 
-● Repositorio en:
-○ GitHub / GitLab / Bitbucket
-● Acceso para el docente
-● Uso de commits
+- Repositorio en:
+  - GitHub / GitLab / Bitbucket
+- Acceso para el docente
+- Uso de commits
 
 ### Buenas prácticas
 
-● commits progresivos
-● mensajes descriptivos
+- commits progresivos
+- mensajes descriptivos
 
 ## Criterios de evaluación:
 
 Se valorará:
-● correcto uso de Programación Orientada a Objetos
-● implementación de herencia y polimorfismo
-● uso adecuado de interfaces
-● manejo de colecciones
-● validaciones de negocio
-● manejo de excepciones
-● funcionamiento del sistema
-● claridad y organización del código
-● documentación UML
-● uso de control de versiones
+- correcto uso de Programación Orientada a Objetos
+- implementación de herencia y polimorfismo
+- uso adecuado de interfaces
+- manejo de colecciones
+- validaciones de negocio
+- manejo de excepciones
+- funcionamiento del sistema
+- claridad y organización del código
+- documentación UML
+- uso de control de versiones
