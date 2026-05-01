@@ -1,6 +1,7 @@
 # parcial-1-acn3bv-Belgorodsky.Mato.Solis
 
 ## EXAMEN:
+
 - Parcial 1 – Programación avanzada
 - AÑO LECTIVO: 2026
 - DOCENTES: Bruno, Emmanuel
@@ -27,6 +28,7 @@ Al iniciar el programa, se deberá registrar el garage indicando su capacidad m�
 
 Funcionamiento del sistema:
 Una vez iniciado el programa:
+
 1. Se inicializa el garage con una capacidad máxima.
 2. Se podrán registrar vehículos indicando:
    - tipo de vehículo (Moto, Auto o Camión)
@@ -50,6 +52,7 @@ Una vez iniciado el programa:
 ## Módulo de Vehículos
 
 El sistema deberá modelar distintos tipos de vehículos:
+
 - Moto
 - Auto
 - Camión
@@ -57,6 +60,7 @@ El sistema deberá modelar distintos tipos de vehículos:
 ### Requisitos
 
 Cada vehículo debe tener:
+
 - patente (única)
 - marca
 - modelo
@@ -65,15 +69,17 @@ Cada vehículo debe tener:
 ### Jerarquía
 
 Debe existir:
+
 - Clase base: Vehiculo
 - Subclases:
   - Moto
-  - Auto  
+  - Auto
   - Camion
 
 ### Comportamientos obligatorios
 
 Cada vehículo debe poder:
+
 - calcular su costo
 - informar su espacio ocupado
 - mostrar sus datos
@@ -96,6 +102,7 @@ El garage será el núcleo del sistema.
 ### Funcionalidades
 
 El sistema debe permitir:
+
 - Registrar ingreso de vehículo
 - Registrar salida de vehículo
 - Listar vehículos estacionados
@@ -104,14 +111,15 @@ El sistema debe permitir:
 ### Estado del garage
 
 Debe mostrar:
+
 - Capacidad total
 - Espacio ocupado
 - Espacio disponible
 
 ## Módulo de Cálculo de Costos
 
-Parcial 1 – Programación avanzada
 El sistema debe calcular el costo de cada vehículo en función de:
+
 - horas estimadas
 - tarifa por tipo
 
@@ -124,7 +132,7 @@ El sistema debe calcular el costo de cada vehículo en función de:
 ### Requisito clave
 
 Debe utilizarse polimorfismo, evitando estructuras tipo:
-if (tipo == "Auto") ...
+`if (tipo == "Auto") ...`
 
 ### Interfaces
 
@@ -132,19 +140,26 @@ El sistema debe incorporar al menos una interfaz.
 
 ### Ejemplo sugerido
 
+```java
 public interface Calculable {
-double calcularCosto();
+  double calcularCosto();
 }
+```
+
 También puede agregarse:
+
+```java
 public interface Mostrable {
-void mostrarDatos();
+  void mostrarDatos();
 }
+```
 
 ## Colecciones
 
 Los vehículos deben almacenarse en una colección, por ejemplo:
 `ArrayList<Vehiculo>`
 El sistema debe permitir:
+
 - agregar vehículos
 - eliminar vehículos
 - recorrer la colección
@@ -215,9 +230,10 @@ Se espera que se grafique la totalidad del sistema, representando su estructura 
 ### Requisitos
 
 Deberá incluir obligatoriamente:
+
 - Diagrama de Clases
 - Diagrama de Casos de Uso
-Los diagramas deberán:
+  Los diagramas deberán:
 - Representar correctamente las clases, relaciones y funcionalidades del
   sistema
 - Reflejar el diseño implementado en el código
@@ -248,6 +264,7 @@ El parcial debe desarrollarse utilizando Git.
 ## Criterios de evaluación:
 
 Se valorará:
+
 - correcto uso de Programación Orientada a Objetos
 - implementación de herencia y polimorfismo
 - uso adecuado de interfaces
