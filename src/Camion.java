@@ -1,6 +1,6 @@
-package Parcial1_Belgorodsky_Mato_Solis;
+package src;
 
-public class Camion extends vehiculo {
+public class Camion extends Vehiculo {
 
     public Camion(String patente, String marca, String modelo, int horas) {
         super(patente, marca, modelo, horas);

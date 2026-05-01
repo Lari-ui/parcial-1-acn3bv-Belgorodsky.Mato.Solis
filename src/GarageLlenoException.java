@@ -1,4 +1,4 @@
-package Parcial1_Belgorodsky_Mato_Solis;
+package src;
 
 public class GarageLlenoException extends Exception {
     public GarageLlenoException(String mensaje) {

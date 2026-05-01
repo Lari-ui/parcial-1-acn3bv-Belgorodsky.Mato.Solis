@@ -1,4 +1,4 @@
-package Parcial1_Belgorodsky_Mato_Solis;
+package src;
 
 public class PatenteDuplicadaException extends Exception {
     public PatenteDuplicadaException(String mensaje) {

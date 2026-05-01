@@ -1,8 +1,8 @@
-package Parcial1_Belgorodsky_Mato_Solis;
+package src;
 
-public class moto extends vehiculo {
+public class Moto extends Vehiculo {
 
-    public moto(String patente, String marca, String modelo, int horas) {
+    public Moto(String patente, String marca, String modelo, int horas) {
         super(patente, marca, modelo, horas);
     }
 
@@ -15,5 +15,4 @@ public class moto extends vehiculo {
     public int getEspacios() {
         return 1;
     }
-} 
-
+}
