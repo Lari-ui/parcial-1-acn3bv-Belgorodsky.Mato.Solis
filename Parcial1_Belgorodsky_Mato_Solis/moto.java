@@ -1,4 +1,4 @@
-package Parcial-Garage;
+package Parcial1_Belgorodsky_Mato_Solis;
 
 public class moto extends vehiculo {
 

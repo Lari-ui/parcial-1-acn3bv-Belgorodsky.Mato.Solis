@@ -1,3 +1,4 @@
+package Parcial1_Belgorodsky_Mato_Solis;
 public abstract class vehiculo {
     protected String patente;
     protected String marca;

@@ -1,3 +1,4 @@
+package Parcial1_Belgorodsky_Mato_Solis;
 public class Camion extends vehiculo {
 
     public Camion(String patente, String marca, String modelo, int horas) {

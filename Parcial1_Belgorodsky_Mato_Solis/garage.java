@@ -1,4 +1,4 @@
-package Parcial1-Belgorodsky-Mato-Solis;
+package Parcial1_Belgorodsky_Mato_Solis;
 import java.util.ArrayList;
 import java.util.List;
 
