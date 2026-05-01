@@ -70,8 +70,11 @@ public class main {
                     break;
 
                 case 4:
-                    System.out.println("Libres: " + garage.espaciosDisponibles());
-                    break;
+                    System.out.println("----- ESTADO DEL GARAGE -----");
+                    System.out.println("Capacidad total: " + garage.getCapacidadMaxima());
+                    System.out.println("Espacios ocupados: " + garage.getEspaciosOcupados());
+                    System.out.println("Espacios disponibles: " + garage.espaciosDisponibles());
+                     break;
             }
 
         } while (opcion != 0);

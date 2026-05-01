@@ -41,5 +41,13 @@ public class garage {
     public int espaciosDisponibles() {
         return capacidadMaxima - espaciosOcupados;
     }
+
+    public int getCapacidadMaxima() {
+    return capacidadMaxima;
+}
+
+    public int getEspaciosOcupados() {
+    return espaciosOcupados;
+}
 }
 
