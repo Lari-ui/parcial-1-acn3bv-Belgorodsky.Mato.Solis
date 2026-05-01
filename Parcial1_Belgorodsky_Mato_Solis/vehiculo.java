@@ -1,5 +1,5 @@
 package Parcial1_Belgorodsky_Mato_Solis;
-public abstract class vehiculo {
+public abstract class vehiculo implements calculable {
     protected String patente;
     protected String marca;
     protected String modelo;
@@ -18,4 +18,11 @@ public abstract class vehiculo {
     public String getPatente() {
         return patente;
     }
+
+public void mostrarDatos() {
+    System.out.println("Patente: " + patente +
+                       " Marca: " + marca +
+                       " Modelo: " + modelo +
+                       " Horas: " + horas);
+}    
 }
