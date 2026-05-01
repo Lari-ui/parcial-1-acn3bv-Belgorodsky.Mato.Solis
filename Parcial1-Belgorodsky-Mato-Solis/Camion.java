@@ -1,16 +1,16 @@
-public class Auto extends Vehiculo {
+public class Camion extends vehiculo {
 
-    public Auto(String patente, String marca, String modelo, int horas) {
+    public Camion(String patente, String marca, String modelo, int horas) {
         super(patente, marca, modelo, horas);
     }
 
     @Override
     public double calcularCosto() {
-        return horas * 1000;
+        return horas * 1500;
     }
 
     @Override
     public int getEspacios() {
-        return 2;
+        return 4;
     }
 }
