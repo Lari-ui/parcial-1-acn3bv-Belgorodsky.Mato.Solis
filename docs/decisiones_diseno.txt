@@ -1,0 +1,151 @@
+FUNDAMENTACIÓN DE DECISIONES DE DISEÑO - SISTEMA DE GARAGE
+
+1. Modelo general
+
+El sistema fue diseñado como una aplicación de consola en Java orientada a objetos. Su objetivo es administrar un garage, permitiendo ingresar vehículos, egresarlos, listar los vehículos estacionados, controlar la capacidad disponible y calcular costos de estadía.
+
+2. Clase abstracta Vehiculo
+
+Se creo una clase abstracta Vehiculo porque representa un concepto general. No se debería crear un vehículo genérico, sino vehículos concretos como Moto, Auto o Camion.
+
+Vehiculo contiene los datos comunes:
+
+- patente
+- marca
+- modelo
+- horas
+
+También define los métodos que cada vehículo debe implementar:
+
+- calcularCosto()
+- getEspacios()
+
+Esta decisión evita repetir atributos y permite trabajar con todos los vehículos de forma general.
+
+3. Herencia y polimorfismo
+
+Las clases Moto, Auto y Camion heredan de Vehiculo porque comparten una misma base, pero tienen reglas distintas.
+
+- Moto: ocupa 1 espacio y cuesta 700 por hora.
+- Auto: ocupa 2 espacios y cuesta 1000 por hora.
+- Camion: ocupa 4 espacios y cuesta 1500 por hora.
+
+Gracias al polimorfismo, el garage puede manejar una lista de Vehiculo y llamar a calcularCosto() o getEspacios() sin preguntar qué tipo exacto de vehículo es.
+
+4. Interfaces Calculable y Mostrable
+
+Se usaron dos interfaces:
+
+- Calculable: define el metodo calcularCosto().
+- Mostrable: define el metodo mostrarDatos().
+
+Esto permite separar responsabilidades. Un objeto calculable sabe calcular su costo y un objeto mostrable sabe mostrar su información.
+
+En este sistema, Vehiculo implementa ambas interfaces porque todos los vehículos deben poder calcular su costo y mostrar sus datos.
+
+5. Clase Garage
+
+La clase Garage concentra la lógica principal del sistema. Administra la lista de vehículos, controla la capacidad y valida las reglas de negocio.
+
+Sus operaciones principales son:
+
+- ingresarVehiculo()
+- egresarVehiculo()
+- listarVehiculos()
+- espaciosDisponibles()
+- existeVehiculo()
+- mostrarReporte()
+
+Esta decisión separa la lógica del garage del menú de consola. Main se encarga de interactuar con el usuario, mientras que Garage maneja el estado y las reglas del sistema.
+
+6. Uso de ArrayList
+
+Los vehículos se almacenan en una List<Vehiculo> implementada con ArrayList.
+
+Es una decisión permite agregar, recorrer, buscar y eliminar vehículos de forma simple.
+
+7. Control de capacidad
+
+El sistema no controla solamente la cantidad de vehículos, sino la cantidad de espacios ocupados. Esto es importante porque una moto, un auto y un camión no ocupan lo mismo.
+
+Antes de ingresar un vehículo, se valida que haya espacio suficiente:
+
+espaciosOcupados + vehiculo.getEspacios() > capacidadMaxima
+
+Si no hay espacio, se lanza GarageLlenoException. Esto evita que el garage quede en un estado invalido.
+
+8. Validación de patente duplicada
+
+El sistema no permite ingresar dos vehículos con la misma patente. La comparación se realiza sin distinguir mayúsculas y minúsculas usando equalsIgnoreCase().
+
+Esta decisión mantiene la consistencia del sistema, ya que la patente funciona como identificador del vehículo.
+
+9. Excepciones personalizadas
+
+Se definieron excepciones propias para representar errores del dominio:
+
+- GarageLlenoException
+- PatenteDuplicadaException
+- VehiculoNoEncontradoException
+- HorasInvalidasException
+
+Esto hace que el código sea más claro, porque cada excepción indica exactamente qué problema ocurrió.
+
+10. Validaciones en Main
+
+La clase Main tiene métodos auxiliares para validar los datos ingresados por consola, como números positivos, horas validas, opciones de menú y textos no vacíos.
+
+Esto evita repetir código y mejora el uso del programa, ya que, si el usuario ingresa un dato incorrecto, el sistema vuelve a pedirlo.
+
+11. Ingreso y egreso de vehículos
+
+El ingreso y el egreso se manejan como operaciones separadas.
+
+- ingresarVehiculo() agrega un vehículo si cumple las reglas.
+- egresarVehiculo() busca el vehículo por patente, lo elimina y lo devuelve.
+
+Devolver el vehículo egresado permite mostrar sus datos y calcular el costo final sin hacer una segunda búsqueda.
+
+12. Uso de Iterator
+
+Para eliminar un vehículo de la lista se usa Iterator. Esta decisión permite borrar un elemento mientras se recorre la lista sin romper.
+
+13. Reporte del garage
+
+El método mostrarReporte() muestra información general del estado del garage:
+
+- total de vehículos
+- cantidad de motos
+- cantidad de autos
+- cantidad de camiones
+- espacios ocupados
+- espacios libres
+- recaudación total
+
+Esto permite obtener rápidamente un resumen del funcionamiento del sistema.
+
+14. UML y casos de uso
+
+El proyecto incluye documentación en PDF:
+
+- Caso_de_usos.pdf
+- UML.pdf
+
+El diagrama de casos de uso representa las acciones principales del usuario, como ingresar, egresar, listar, ver estado, calcular costos y ver reportes.
+
+El UML muestra las clases principales, sus relaciones, las interfaces y las excepciones del sistema.
+
+15. Ventajas del diseño
+
+El diseño es adecuado porque:
+
+- aplica programación orientada a objetos;
+- usa herencia y polimorfismo;
+- evita duplicar código común;
+- separa parcialmente la lógica del menú;
+- usa excepciones claras;
+- mantiene el estado del garage dentro de una clase especifica.
+
+16. Conclusión
+
+El sistema tiene un diseño orientado a objetos. Usa una clase abstracta para representar vehículos, clases hijas para cada tipo concreto, polimorfismo para costos y espacios, una clase Garage para centralizar la lógica y excepciones personalizadas para manejar errores.
