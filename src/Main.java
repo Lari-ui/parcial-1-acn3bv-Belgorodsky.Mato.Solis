@@ -48,7 +48,19 @@ public class Main {
     private static void ingresarVehiculo(Scanner sc, Garage garage) {
         System.out.println("\n--- Ingreso de vehiculo ---");
         int tipo = leerEnteroRango(sc, "Tipo (1 Moto, 2 Auto, 3 Camion): ", 1, 3);
-        String patente = leerTextoNoVacio(sc, "Patente: ");
+       // String patente = leerTextoNoVacio(sc, "Patente: ");
+        
+        String patente;
+            while (true) {
+                patente = leerTextoNoVacio(sc, "Patente: ").toUpperCase();
+
+                if (garage.existeVehiculo(patente)) {
+                    System.out.println("Error: la patente ya existe. Ingrese una diferente.");
+                 } else {
+             break;
+             }
+        }
+
         String marca = leerTextoNoVacio(sc, "Marca: ");
         String modelo = leerTextoNoVacio(sc, "Modelo: ");
         int horas;
